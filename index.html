@@ -5,10 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <style></style>
   </head>
   <body>
-    <div class="out"></div>
+    <div class="out">
+      <div class="out2"></div>
+      <div class="out2 not-big"></div>
+      <div class="out2"></div>
+      <div class="out2"></div>
+    </div>
+
     <script src="app.js"></script>
     <script src="lesson-objects.js"></script>
+    <script>
+      var outElements = document.querySelectorAll(".out2");
+      console.log(outElements);
+      outElements[0].onclick = function () {
+        alert("click");
+      };
+      console.dir(outElements[0]);
+
+      for (var i = 0; i < outElements.length; i++) {
+        outElements[i].innerHTML = i;
+
+        if (!outElements[i].classList.contains("not-big")) {
+          outElements[i].classList.add("font-big");
+        }
+      }
+
+      const arr = [1, 2, 3, 4, 5];
+    </script>
   </body>
 </html>

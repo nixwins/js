@@ -44,7 +44,7 @@ if (num1 > num2) {
   console.log("Первая переменная больше второй");
 }
 
-var divOutEl = document.querySelector(".out");
-if (num1 > 0) {
-  divOutEl.innerHTML = "Первая число больше 0";
-}
+// var divOutEl = document.querySelector(".out");
+// if (num1 > 0) {
+//   divOutEl.innerHTML = "Первая число больше 0";
+// }
