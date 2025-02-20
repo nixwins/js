@@ -328,12 +328,12 @@ console.log(productSum);
 // Задача 34: С помощью цикла for найдите количество студентов младше 20 лет
 console.log(students);
 
-let studentSum;
+let studentSum = 0;
 
 for (let i = 0; i < students.length; i++) {
   // const element = students[i];
   if (students[i].age < 20) {
-    studentSum = i++;
+    studentSum = studentSum + 1; // studentSum += 1; studentSum++
   }
 }
 
@@ -356,8 +356,7 @@ console.log(products);
 for (let i = 0; i < products.length && !found; i++) {
   if (products[i].price > 100000) {
     firstProduct = products[i];
-    // break;
-    found = true;
+    break;
   }
 }
 
@@ -390,21 +389,21 @@ console.log(topProduct);
 
 let studentOld = students[0];
 // let studentElement = 0;
-for (let i = 0; i < students.length; i++) {
+for (let i = 1; i < students.length; i++) {
   // studentElement = students[i].age;
   if (students[i].age > studentOld.age) {
     studentOld = students[i];
   }
 }
 
-console.log(studentOld);
+console.log("Самый старый студент: ", studentOld);
 
 // Задача 40: С помощью цикла for посчитайте количество продуктов дороже 50000 и в наличии
 
 let productCount = 0;
 
 for (let i = 0; i < products.length; i++) {
-  if (products[i].price > 50000) {
+  if (products[i].price > 50000 && products[i].inStock) {
     productCount++;
   }
 }
