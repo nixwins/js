@@ -14,3 +14,11 @@
 .font-big {
   font-size: 25px;
 }
+
+.border-red {
+  border: 10px solid red;
+}
+
+img {
+  width: 200px;
+}
