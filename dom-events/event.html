@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" class="username" />
+    <button class="btn">Click me</button>
+    <button class="btn-clear">Clear</button>
+
+    <button class="btn-double-click">Double click</button>
+
+    <script>
+      const usernameEl = document.querySelector(".username");
+      const btnEl = document.querySelector(".btn");
+      const btnClearUsernamBtn = document.querySelector(".btn-clear");
+
+      const btnDoubleClickEl = document.querySelector(".btn-double-click");
+
+      function handleClick() {
+        console.log("click btn");
+        usernameEl.value = "nixwins";
+      }
+
+      btnEl.onclick = handleClick;
+
+      btnClearUsernamBtn.onclick = function () {
+        usernameEl.value = "";
+      };
+
+      btnDoubleClickEl.ondblclick = function () {
+        console.log("double click");
+      };
+
+      usernameEl.oninput = function (event) {
+        console.log("user input", event.target.value);
+      };
+    </script>
+  </body>
+</html>
