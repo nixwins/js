@@ -40,20 +40,40 @@ const images = [
 
   }
 
-// const imageEl = [];
+let currentIndex = 0;
 
-
-btnEl.onclick = function () {
-    for (let i = 0; i < imgElement.length; i++) {
-      if (imgElement[i].style.display === "block") {
-        imgElement[i].style.display = "none";
-        if (i === imgElement.length - 1) {
-          imgElement[0].style.display = "block";
-        } else {
-          imgElement[i + 1].style.display = "block";
-        }
-        break;
-      }
-    }
+function slider () {
+  console.log('pirvet');
+  
+  if (currentIndex >= imgElement.length -1){
+    currentIndex = 0;
+  } else {
+    currentIndex++
   }
   
+    for (let i = 0; i < imgElement.length; i++){
+      imgElement[i].style.display = "none";
+      if (currentIndex == i) {
+        imgElement[currentIndex].style.display = "block";
+    }
+  }
+}
+
+
+
+// btnEl.onclick = slider
+
+btnEl.onclick= function () {
+  if (currentIndex >= imgElement.length -1){
+    currentIndex = 0;
+  } else {
+    currentIndex++
+  }
+  
+    for (let i = 0; i < imgElement.length; i++){
+      imgElement[i].style.display = "none";
+      if (currentIndex == i) {
+        imgElement[currentIndex].style.display = "block";
+    }
+  }
+}
