@@ -22,9 +22,14 @@ const images = [
 
   const btnEl = document.createElement("button");
 
-  btnEl.innerText = "next";
+  const prevButton = document.createElement("button");
 
+  btnEl.innerText = "next";
+  prevButton.innerText = "prev";
   bodyEl.append(btnEl);
+  bodyEl.append(prevButton);
+
+
 
   const imgElement = [];
 
@@ -60,20 +65,43 @@ function slider () {
 }
 
 
+function update () {
+  for (let i = 0; i < imgElement.length; i++){
+    imgElement[i].style.display = "none";
+    if (currentIndex == i) {
+      imgElement[currentIndex].style.display = "block";
+  }
+}
+}
 
 // btnEl.onclick = slider
 
-btnEl.onclick= function () {
+btnEl.onclick = function () {
   if (currentIndex >= imgElement.length -1){
     currentIndex = 0;
   } else {
     currentIndex++
   }
-  
-    for (let i = 0; i < imgElement.length; i++){
-      imgElement[i].style.display = "none";
-      if (currentIndex == i) {
-        imgElement[currentIndex].style.display = "block";
-    }
+
+  //   for (let i = 0; i < imgElement.length; i++){
+  //     imgElement[i].style.display = "none";
+  //     if (currentIndex == i) {
+  //       imgElement[currentIndex].style.display = "block";
+  //   }
+  // }
+  update()
+}
+
+prevButton.onclick = function (){
+  if (currentIndex == 0){
+    currentIndex = imgElement.length-1;
+  }else {
+    currentIndex--;
   }
+  update()
+  // for (let i = 0; i < imgElement.length; i++){
+  //   imgElement[i].style.display = "none";
+  //   if (currentIndex == i) {
+  //     imgElement[currentIndex].style.display = "block";
+  // }
 }
