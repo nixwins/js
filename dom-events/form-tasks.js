@@ -28,9 +28,8 @@ const taskValue = document.querySelector("input[name='task']");
 const taskBtn = document.querySelector("#btn");
 
 //  2.1 добавить значние inputa в массив todoList как объект в объекте должно быть два свойства task и id (id должен быть рандомный  Math.random())
-const todoList = [];
+let todoList = [];
 var ulList = document.querySelector('#list')
-const liItem = [];
 
 
 
@@ -45,7 +44,6 @@ taskBtn.onclick = function (s) {
     };
     todoList.push(newTask)
     renderUl()
-    // dltBtn()
 };
 //  вывести массив todoList в консоль
 console.log(todoList);
@@ -63,16 +61,19 @@ function renderLiElement(taskObj){
   let liEl = document.createElement("li");
     liEl.innerText = taskObj.task
     ulList.appendChild(liEl);
-    renderDeleteBtn(liEl)
+    renderDeleteBtn(liEl, taskObj.id)
 }
 
-function renderDeleteBtn(liEl){
+function renderDeleteBtn(liEl,id){
   let btnEl = document.createElement("button");
     btnEl.onclick = function (){
       ulList.removeChild(liEl)
+      let counterId;
       for (let i = 0; i < todoList.length; i++) {
-        delete todoList[i]
-
+        if (todoList[i].id === id) {
+          counterId = i;
+          todoList.splice(counterId,1);
+        }
       }
     }
     btnEl.innerText = "Delete";
@@ -95,7 +96,9 @@ btnAll.innerText = "Delete All";
 toDoWrapper.append(btnAll);
 
 function deleteAll (){
-  ulList.remove("li")
+  console.log("hi");
+  ulList.innerHTML = '';
+todoList.splice(0, todoList.length);
 }
 
 
